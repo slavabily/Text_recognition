@@ -28,6 +28,7 @@
 
 import UIKit
 import MobileCoreServices
+import TesseractOCR
 
 class ViewController: UIViewController {
   @IBOutlet weak var textView: UITextView!
@@ -99,7 +100,21 @@ class ViewController: UIViewController {
 
   // Tesseract Image Recognition
   func performImageRecognition(_ image: UIImage) {
-    // TODO: Add more code here...
+    // 1
+    if let tesseract = G8Tesseract(language: "eng+fra") {
+      // 2
+      tesseract.engineMode = .tesseractCubeCombined
+      // 3
+      tesseract.pageSegmentationMode = .auto
+      // 4
+      tesseract.image = image
+      // 5
+      tesseract.recognize()
+      // 6
+      textView.text = tesseract.recognizedText
+    }
+    // 7
+    activityIndicator.stopAnimating()
   }
 }
 
