@@ -27,6 +27,7 @@
 /// THE SOFTWARE.
 
 import UIKit
+import MobileCoreServices
 
 class ViewController: UIViewController {
   @IBOutlet weak var textView: UITextView!
@@ -42,7 +43,58 @@ class ViewController: UIViewController {
   }
   
   @IBAction func takePhoto(_ sender: Any) {
-    // TODO: Add more code here...
+    // 1
+    let imagePickerActionSheet =
+      UIAlertController(title: "Snap/Upload Image",
+                        message: nil,
+                        preferredStyle: .actionSheet)
+
+    // 2
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+      let cameraButton = UIAlertAction(
+        title: "Take Photo",
+        style: .default) { (alert) -> Void in
+        // 1
+        self.activityIndicator.startAnimating()
+        // 2
+        let imagePicker = UIImagePickerController()
+        // 3
+        imagePicker.delegate = self
+        // 4
+        imagePicker.sourceType = .camera
+        // 5
+        imagePicker.mediaTypes = [kUTTypeImage as String]
+        // 6
+        self.present(imagePicker, animated: true, completion: {
+          // 7
+          self.activityIndicator.stopAnimating()
+        })
+
+      }
+      imagePickerActionSheet.addAction(cameraButton)
+    }
+
+    // 3
+    let libraryButton = UIAlertAction(
+      title: "Choose Existing",
+      style: .default) { (alert) -> Void in
+      self.activityIndicator.startAnimating()
+      let imagePicker = UIImagePickerController()
+      imagePicker.delegate = self
+      imagePicker.sourceType = .photoLibrary
+      imagePicker.mediaTypes = [kUTTypeImage as String]
+      self.present(imagePicker, animated: true, completion: {
+        self.activityIndicator.stopAnimating()
+      })
+    }
+    imagePickerActionSheet.addAction(libraryButton)
+
+    // 4
+    let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
+    imagePickerActionSheet.addAction(cancelButton)
+
+    // 5
+    present(imagePickerActionSheet, animated: true)
   }
 
   // Tesseract Image Recognition
@@ -59,6 +111,18 @@ extension ViewController: UINavigationControllerDelegate {
 extension ViewController: UIImagePickerControllerDelegate {
   func imagePickerController(_ picker: UIImagePickerController,
                              didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    // TODO: Add more code here...
+    // 1
+    guard let selectedPhoto =
+      info[.originalImage] as? UIImage else {
+        dismiss(animated: true)
+        return
+    }
+    // 2
+    activityIndicator.startAnimating()
+    // 3
+    dismiss(animated: true) {
+      self.performImageRecognition(selectedPhoto)
+    }
+
   }
 }

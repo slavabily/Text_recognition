@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		04327474223AF8FD00E65B50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04327472223AF8FD00E65B50 /* Main.storyboard */; };
 		04327476223AF8FF00E65B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04327475223AF8FF00E65B50 /* Assets.xcassets */; };
 		04327479223AF8FF00E65B50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04327477223AF8FF00E65B50 /* LaunchScreen.storyboard */; };
+		9536F3A79124F76D28E2388F /* Pods_Love_In_A_Snap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0452043C6BF055FDB92B17 /* Pods_Love_In_A_Snap.framework */; };
+		F9110F7A26450FFE0057799A /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = F9110F7926450FFE0057799A /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		04327475223AF8FF00E65B50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04327478223AF8FF00E65B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0432747A223AF8FF00E65B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23C59D2124CEF843595354D2 /* Pods-Love In A Snap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Love In A Snap.debug.xcconfig"; path = "Target Support Files/Pods-Love In A Snap/Pods-Love In A Snap.debug.xcconfig"; sourceTree = "<group>"; };
+		630F9F622EFD65DE90C682C9 /* Pods-Love In A Snap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Love In A Snap.release.xcconfig"; path = "Target Support Files/Pods-Love In A Snap/Pods-Love In A Snap.release.xcconfig"; sourceTree = "<group>"; };
+		CE0452043C6BF055FDB92B17 /* Pods_Love_In_A_Snap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Love_In_A_Snap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9110F7926450FFE0057799A /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9536F3A79124F76D28E2388F /* Pods_Love_In_A_Snap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +45,11 @@
 		04327462223AF8FD00E65B50 = {
 			isa = PBXGroup;
 			children = (
+				F9110F7926450FFE0057799A /* tessdata */,
 				0432746D223AF8FD00E65B50 /* Love In A Snap */,
 				0432746C223AF8FD00E65B50 /* Products */,
+				38231851179ABB9EBCAD63BC /* Pods */,
+				E8307E1E79394C6B81F683F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +74,23 @@
 			path = "Love In A Snap";
 			sourceTree = "<group>";
 		};
+		38231851179ABB9EBCAD63BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23C59D2124CEF843595354D2 /* Pods-Love In A Snap.debug.xcconfig */,
+				630F9F622EFD65DE90C682C9 /* Pods-Love In A Snap.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E8307E1E79394C6B81F683F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE0452043C6BF055FDB92B17 /* Pods_Love_In_A_Snap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0432747D223AF8FF00E65B50 /* Build configuration list for PBXNativeTarget "Love In A Snap" */;
 			buildPhases = (
+				ED17D3D4CDBA1B8E0FA57EC2 /* [CP] Check Pods Manifest.lock */,
 				04327467223AF8FD00E65B50 /* Sources */,
 				04327468223AF8FD00E65B50 /* Frameworks */,
 				04327469223AF8FD00E65B50 /* Resources */,
+				3B8CD6F704F6B8C9A35A9973 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +152,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				04327479223AF8FF00E65B50 /* LaunchScreen.storyboard in Resources */,
+				F9110F7A26450FFE0057799A /* tessdata in Resources */,
 				04327476223AF8FF00E65B50 /* Assets.xcassets in Resources */,
 				04327474223AF8FD00E65B50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B8CD6F704F6B8C9A35A9973 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Love In A Snap/Pods-Love In A Snap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Love In A Snap/Pods-Love In A Snap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Love In A Snap/Pods-Love In A Snap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED17D3D4CDBA1B8E0FA57EC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Love In A Snap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04327467223AF8FD00E65B50 /* Sources */ = {
@@ -280,10 +352,11 @@
 		};
 		0432747E223AF8FF00E65B50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23C59D2124CEF843595354D2 /* Pods-Love In A Snap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = L6T2S9K4GS;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				INFOPLIST_FILE = "Love In A Snap/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -301,10 +374,11 @@
 		};
 		0432747F223AF8FF00E65B50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 630F9F622EFD65DE90C682C9 /* Pods-Love In A Snap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = L6T2S9K4GS;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				INFOPLIST_FILE = "Love In A Snap/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
