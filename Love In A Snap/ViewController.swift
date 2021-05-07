@@ -100,6 +100,9 @@ class ViewController: UIViewController {
 
   // Tesseract Image Recognition
   func performImageRecognition(_ image: UIImage) {
+    
+    let scaledImage = image.scaledImage(1000) ?? image
+    
     // 1
     if let tesseract = G8Tesseract(language: "eng+fra") {
       // 2
@@ -107,11 +110,12 @@ class ViewController: UIViewController {
       // 3
       tesseract.pageSegmentationMode = .auto
       // 4
-      tesseract.image = image
+      tesseract.image = scaledImage
       // 5
       tesseract.recognize()
       // 6
       textView.text = tesseract.recognizedText
+      print(textView.text ?? "Unseccessful text recognition:(")
     }
     // 7
     activityIndicator.stopAnimating()
@@ -138,6 +142,29 @@ extension ViewController: UIImagePickerControllerDelegate {
     dismiss(animated: true) {
       self.performImageRecognition(selectedPhoto)
     }
+  }
+}
 
+// MARK: - UIImage extension
+
+//1
+extension UIImage {
+  // 2
+  func scaledImage(_ maxDimension: CGFloat) -> UIImage? {
+    // 3
+    var scaledSize = CGSize(width: maxDimension, height: maxDimension)
+    // 4
+    if size.width > size.height {
+      scaledSize.height = size.height / size.width * scaledSize.width
+    } else {
+      scaledSize.width = size.width / size.height * scaledSize.height
+    }
+    // 5
+    UIGraphicsBeginImageContext(scaledSize)
+    draw(in: CGRect(origin: .zero, size: scaledSize))
+    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    // 6
+    return scaledImage
   }
 }
